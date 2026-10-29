@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#07213d" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <title>Admin Dashboard — Signoret Pharmaceuticals Pvt. Ltd.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Login Screen -->
+  <div id="loginScreen" class="admin-login-screen">
+    <div class="admin-login-card">
+      <div class="admin-login-logo">
+        <img src="images/logo-mark.png" alt="Signoret Pharmaceuticals" />
+      </div>
+      <h1>Admin Dashboard</h1>
+      <p class="admin-login-sub">Signoret Pharmaceuticals Pvt. Ltd.</p>
+      <form id="loginForm" novalidate>
+        <label>
+          Email Address
+          <input id="loginEmail" type="email" autocomplete="email" required placeholder="admin@signoretpharma.com" />
+        </label>
+        <label>
+          Password
+          <input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Enter password" />
+        </label>
+        <button class="btn btn-primary admin-login-btn" type="submit">Sign In</button>
+        <div id="loginError" class="admin-login-error" role="alert"></div>
+        <div>
+          <button type="button" id="forgotPassBtn" class="admin-forgot-btn">Forgot password?</button>
+          <div id="forgotStatus" class="admin-login-status" role="status"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard (hidden until authenticated) -->
+  <div id="dashboardScreen" class="admin-dashboard" style="display:none;">
+
+    <!-- Sidebar Backdrop (mobile) -->
+    <div id="sidebarBackdrop" class="admin-sidebar-backdrop"></div>
+
+    <!-- Mobile Top Header -->
+    <header class="admin-mobile-header" id="adminMobileHeader">
+      <div class="admin-mobile-header-brand">
+        <img src="images/logo-mark.png" alt="Signoret" />
+        <div>
+          Signoret
+          <small>Admin Panel</small>
+        </div>
+      </div>
+      <button id="sidebarToggle" class="admin-sidebar-toggle" type="button" aria-label="Toggle sidebar" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-brand">
+        <img src="images/logo-mark.png" alt="" />
+        <span>Signoret <small>Admin Panel</small></span>
+      </div>
+      <nav class="admin-sidebar-nav">
+        <a href="#" class="admin-nav-item active" data-section="overview">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          Overview
+        </a>
+        <a href="#" class="admin-nav-item" data-section="products">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Products
+        </a>
+        <a href="#" class="admin-nav-item" data-section="enquiries">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Enquiries
+        </a>
+        <a href="#" class="admin-nav-item" data-section="posts">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Blog Posts
+        </a>
+        <a href="#" class="admin-nav-item" data-section="settings">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </a>
+      </nav>
+      <div class="admin-sidebar-footer">
+        <button id="logoutBtn" class="admin-logout-btn" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+
+      <!-- OVERVIEW SECTION -->
+      <section id="sectionOverview" class="admin-section active">
+        <h2 class="admin-section-title">Dashboard Overview</h2>
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card">
+            <span class="admin-stat-num" id="statProducts">—</span>
+            <span class="admin-stat-label">Total Products</span>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-num" id="statEnquiries">—</span>
+            <span class="admin-stat-label">Total Enquiries</span>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-num" id="statNewEnquiries">—</span>
+            <span class="admin-stat-label">New Enquiries</span>
+          </div>
+        </div>
+        <div class="admin-card">
+          <h3>Recent Enquiries</h3>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="recentEnquiriesTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Product</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="recentEnquiriesBody">
+                <tr><td colspan="5" class="admin-empty">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Mobile list -->
+          <div class="admin-mobile-card-list" id="recentEnquiriesMobileList"></div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS SECTION -->
+      <section id="sectionProducts" class="admin-section">
+        <div class="admin-section-header">
+          <h2 class="admin-section-title">Products</h2>
+          <button id="addProductBtn" class="btn btn-primary" type="button">+ Add Product</button>
+        </div>
+        <div class="admin-card">
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="productsTable">
+              <thead>
+                <tr>
+                  <th style="width:36px">⇅</th>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Composition</th>
+                  <th>Pack Size</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productsBody">
+                <tr><td colspan="8" class="admin-empty">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Mobile card list (shown on small screens instead of table) -->
+          <div class="admin-products-mobile-list" id="productsMobileList"></div>
+        </div>
+      </section>
+
+      <!-- ENQUIRIES SECTION -->
+      <section id="sectionEnquiries" class="admin-section">
+        <div class="admin-section-header">
+          <h2 class="admin-section-title">Enquiries</h2>
+          <button id="exportEnquiriesCsvBtn" class="btn btn-secondary" type="button" style="display:inline-flex;align-items:center;gap:6px;">
+            <span>📥</span> Export CSV
+          </button>
+        </div>
+        <div class="admin-card">
+          <!-- Toolbar & Filters -->
+          <div class="admin-toolbar">
+            <div class="admin-toolbar-group">
+              <input type="search" id="enquirySearchInput" placeholder="Search by name, phone, product or query…" />
+              <select id="enquiryStatusFilter" aria-label="Filter enquiries by status">
+                <option value="all">All Statuses</option>
+                <option value="New">New</option>
+                <option value="Contacted">Contacted</option>
+                <option value="Closed">Closed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="enquiriesTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Product</th>
+                  <th>Message</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="enquiriesBody">
+                <tr><td colspan="7" class="admin-empty">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Mobile list -->
+          <div class="admin-mobile-card-list" id="enquiriesMobileList"></div>
+
+          <!-- Pagination -->
+          <div class="admin-pagination" id="enquiriesPagination">
+            <span id="enquiryPageInfo">Showing 0-0 of 0</span>
+            <div class="admin-pagination-btns">
+              <button id="enquiryPrevPage" class="btn btn-secondary" type="button">Previous</button>
+              <button id="enquiryNextPage" class="btn btn-secondary" type="button">Next</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS SECTION -->
+      <section id="sectionSettings" class="admin-section">
+        <h2 class="admin-section-title">Site Settings</h2>
+        <div class="admin-card admin-settings-card">
+          <!-- Warning Notice -->
+          <div class="admin-warning-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+              <strong>Important Notice:</strong> Values saved here appear sitewide across every page, header topbars, footers, and direct WhatsApp links. Ensure numbers and addresses are verified.
+            </div>
+          </div>
+
+          <form id="settingsForm" novalidate>
+            <div class="admin-form-row">
+              <label>
+                Phone Number
+                <input id="settingPhone" type="tel" placeholder="+91 81988 88864" required />
+              </label>
+              <label>
+                WhatsApp Number (digits only, e.g. 918198888864)
+                <input id="settingWhatsapp" type="tel" placeholder="918198888864" required />
+              </label>
+            </div>
+            <div class="admin-form-row">
+              <label>
+                Email Address
+                <input id="settingEmail" type="email" placeholder="info@signoretpharma.com" />
+              </label>
+            </div>
+            <label>
+              Full Address
+              <textarea id="settingAddress" rows="3" placeholder="Plot No. 556, Industrial Area Phase-9, Mohali, Punjab 160062" required></textarea>
+            </label>
+            <div class="admin-form-actions">
+              <button class="btn btn-primary" type="submit">Save Settings</button>
+              <span id="settingsStatus" class="admin-form-status"></span>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- BLOG POSTS SECTION -->
+      <section id="sectionPosts" class="admin-section">
+        <div class="admin-section-header">
+          <h2 class="admin-section-title">Blog &amp; News Posts</h2>
+          <button id="addPostBtn" class="btn btn-primary" type="button">+ Add Post</button>
+        </div>
+        <div class="admin-card">
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="postsTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="postsBody">
+                <tr><td colspan="6" class="admin-empty">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Mobile list -->
+          <div class="admin-mobile-card-list" id="postsMobileList"></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Product Modal (Add/Edit) -->
+  <div id="productModal" class="admin-modal">
+    <div class="admin-modal-dialog">
+      <div class="admin-modal-header">
+        <h3 id="productModalTitle">Add Product</h3>
+        <button id="productModalClose" class="admin-modal-close" type="button">&times;</button>
+      </div>
+      <form id="productForm" class="admin-modal-body" novalidate>
+        <input type="hidden" id="productId" />
+        <div class="admin-form-row">
+          <label>
+            Product Name *
+            <input id="productName" required placeholder="e.g. Signopara-DS" />
+          </label>
+          <label>
+            Category *
+            <select id="productCategory" required>
+              <option value="Tablets">Tablets</option>
+              <option value="Capsules">Capsules</option>
+              <option value="Syrups">Syrups</option>
+              <option value="Injections">Injections</option>
+            </select>
+          </label>
+        </div>
+        <label>
+          Composition *
+          <input id="productComposition" required placeholder="e.g. Paracetamol &amp; Mefenamic Acid Suspension" />
+        </label>
+        <label>
+          Pack Size
+          <input id="productPackSize" placeholder="e.g. 60 ml Bottle with Mono Carton" />
+        </label>
+        <label>
+          Description
+          <textarea id="productDescription" rows="3" placeholder="Brief formulation specifications or packaging details"></textarea>
+        </label>
+        <div class="admin-form-row">
+          <label>
+            Product Image (JPEG, PNG, WebP &lt; 2MB)
+            <input type="file" id="productImageFile" accept="image/jpeg,image/png,image/webp" />
+          </label>
+          <div class="admin-image-preview" id="imagePreviewWrap">
+            <img id="imagePreview" src="" alt="Preview" style="display:none;" />
+          </div>
+        </div>
+        <input type="hidden" id="productImageUrl" />
+        <div class="admin-form-row">
+          <label class="admin-toggle-label">
+            <input type="checkbox" id="productActive" checked />
+            <span>Active (visible on website)</span>
+          </label>
+          <label class="admin-toggle-label">
+            <input type="checkbox" id="productFeatured" />
+            <span>Featured on homepage</span>
+          </label>
+        </div>
+        <div class="admin-form-actions">
+          <button class="btn btn-primary" type="submit">Save Product</button>
+          <button class="btn btn-secondary" type="button" id="productCancelBtn">Cancel</button>
+          <span id="productFormStatus" class="admin-form-status"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Blog Post Modal (Add/Edit) -->
+  <div id="postModal" class="admin-modal">
+    <div class="admin-modal-dialog">
+      <div class="admin-modal-header">
+        <h3 id="postModalTitle">Add Blog Post</h3>
+        <button id="postModalClose" class="admin-modal-close" type="button">&times;</button>
+      </div>
+      <form id="postForm" class="admin-modal-body" novalidate>
+        <input type="hidden" id="postId" />
+        <label>
+          Post Title *
+          <input id="postTitle" required placeholder="e.g. Advancing Sterile Injectable Formulations" />
+        </label>
+        <div class="admin-form-row">
+          <label>
+            Category
+            <input id="postCategory" placeholder="e.g. Manufacturing / PCD Franchise / News" />
+          </label>
+          <label>
+            Date
+            <input id="postDate" placeholder="e.g. October 2026" />
+          </label>
+        </div>
+        <label>
+          Post Body / Description *
+          <textarea id="postBody" rows="5" required placeholder="Write the full post content here…"></textarea>
+        </label>
+        <div class="admin-form-row">
+          <label>
+            Featured Image (JPEG, PNG, WebP &lt; 2MB)
+            <input type="file" id="postImageFile" accept="image/jpeg,image/png,image/webp" />
+          </label>
+          <div class="admin-image-preview" id="postImagePreviewWrap">
+            <img id="postImagePreview" src="" alt="Preview" style="display:none;" />
+          </div>
+        </div>
+        <input type="hidden" id="postImageUrl" />
+        <div class="admin-form-row">
+          <label class="admin-toggle-label">
+            <input type="checkbox" id="postPublished" checked />
+            <span>Published (visible on website)</span>
+          </label>
+        </div>
+        <div class="admin-form-actions">
+          <button class="btn btn-primary" type="submit">Save Post</button>
+          <button class="btn btn-secondary" type="button" id="postCancelBtn">Cancel</button>
+          <span id="postFormStatus" class="admin-form-status"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Promote Product Modal (Admin Only) -->
+  <div id="adminPromoteModal" class="admin-promote-modal">
+    <div class="admin-promote-dialog">
+      <div class="admin-promote-header">
+        <h3>Promote Product</h3>
+        <button id="adminPromoteClose" class="admin-modal-close" type="button">&times;</button>
+      </div>
+      <div class="admin-promote-preview">
+        <img id="adminPromoteImg" class="admin-promote-preview-img" src="" alt="" />
+        <div class="admin-promote-preview-info">
+          <h4 id="adminPromoteTitle">Product Name</h4>
+          <p id="adminPromoteSub">Composition details</p>
+        </div>
+      </div>
+      <div class="admin-promote-body">
+        <p>Share on</p>
+        <div class="admin-share-grid">
+          <a id="adminShareWa" class="admin-share-btn admin-share-btn-wa" href="#" target="_blank" rel="noopener">
+            WhatsApp
+          </a>
+          <button id="adminShareCopy" class="admin-share-btn admin-share-btn-copy" type="button" style="grid-column:1/-1;">
+            Copy Product Link
+          </button>
+        </div>
+        <div id="adminPromoteToast" class="admin-promote-toast"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="products-data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

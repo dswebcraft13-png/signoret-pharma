@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#0b315d" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <title>Pharmaceutical Product Catalogue — Signoret Pharmaceuticals Mohali</title>
+  <meta name="description" content="Explore pharmaceutical formulations manufactured by Signoret Pharmaceuticals Pvt. Ltd., Mohali across Tablets, Capsules, Syrups, and Injections." />
+  <link rel="canonical" href="https://signoretpharma.com/products.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pharmaceutical Product Catalogue — Signoret Pharmaceuticals Mohali" />
+  <meta property="og:description" content="Explore Signoret Pharmaceuticals product catalog across Tablets, Capsules, Syrups &amp; Injections. Quality-focused pharmaceutical manufacturing." />
+  <meta property="og:image" content="https://signoretpharma.com/images/og-share.jpg" />
+  <meta property="og:url" content="https://signoretpharma.com/products.html" />
+  <meta property="og:site_name" content="Signoret Pharmaceuticals Pvt. Ltd." />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .filter-btn-count {
+      display: inline-block;
+      margin-left: 6px;
+      background: rgba(0,0,0,0.08);
+      padding: 1px 7px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+    .filter-btn.active .filter-btn-count {
+      background: rgba(255,255,255,0.3);
+      color: #fff;
+    }
+    .product-desc-snippet {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .product-card.hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="top-info">
+        <a href="tel:+918198888864">+91 81988 88864</a>
+        <span>Mon&ndash;Sat&nbsp; 9:00 AM &ndash; 6:30 PM &middot; Mohali, Punjab</span>
+      </div>
+      <a class="wa-mini" href="https://wa.me/918198888864?text=Hello%20Signoret%20Pharmaceuticals%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener"><span class="wa-dot"></span> WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav aria-label="Main navigation">
+    <div class="wrap nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Signoret Pharmaceuticals Home">
+        <span class="nav-brand-logo"><img src="images/logo-mark.png" alt="Signoret Pharmaceuticals logo" /></span>
+        <span class="nav-brand-text">Signoret <span class="nav-brand-sub">Pharma</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="third-party-manufacturing.html">Third-Party Mfg</a>
+        <a href="pcd-franchise.html">PCD Franchise</a>
+        <a href="quality.html">Quality</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-cta" href="tel:+918198888864">Call Now</a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <main id="main">
+    <!-- Page Header Banner -->
+    <header class="page-header">
+      <div class="wrap page-header-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="sep">/</span>
+          <span>Products</span>
+        </div>
+        <h1>Our Product Portfolio</h1>
+        <p>A wide range of formulations across Tablets, Capsules, Syrups &amp; Injections. Manufactured with documented quality checks and standard blister, bottle, and vial packaging.</p>
+      </div>
+    </header>
+
+    <!-- Products Gallery Section with Category Filters & Search -->
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Product Catalogue</span>
+            <h2>Filter &amp; Search Formulations</h2>
+          </div>
+          <p>Search formulations by name or composition, or filter by dosage category.</p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="reveal" style="margin-bottom: 24px; max-width: 480px;">
+          <div style="position:relative; display:flex; align-items:center;">
+            <input type="search" id="productSearchInput" placeholder="Search by name or composition (e.g. Paracetamol)…" style="width:100%; padding: 12px 16px 12px 42px; border:1px solid var(--line); border-radius:12px; background:var(--surface); font-size:0.92rem; color:var(--ink);" aria-label="Search formulations by name or composition" />
+            <svg style="position:absolute; left:14px; color:var(--muted); pointer-events:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+        </div>
+
+        <!-- Category Filters (Populated Dynamically with Live Counts) -->
+        <div class="products-filter reveal" id="categoryFilterContainer">
+          <button class="filter-btn active" type="button" data-filter="all">All Formulations</button>
+        </div>
+
+        <!-- Dynamic Product Cards Grid -->
+        <div class="products-grid" id="dynamicProductsGrid">
+          <!-- Populated from live Supabase data -->
+        </div>
+
+        <!-- Custom Order Note -->
+        <div class="reveal" style="margin-top: 50px; background: var(--surface-2); padding: 26px 30px; border-radius: 16px; border: 1px solid var(--soft-line); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <h3 style="color:var(--blue); font-size:1.2rem; margin-bottom:6px;">Looking for a custom composition or packaging format?</h3>
+            <p style="margin:0; color:var(--muted); font-size:.92rem;">We offer flexible batch sizes and packaging options for Third-Party Manufacturing clients.</p>
+          </div>
+          <a class="btn btn-primary" href="third-party-manufacturing.html">Enquire Third-Party Mfg &#8599;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Detail Modal / View for Shareable Links -->
+    <div id="productDetailModal" class="blog-modal" role="dialog" aria-modal="true" aria-labelledby="modalDetailTitle">
+      <div class="blog-modal-content" style="max-width: 640px;">
+        <button id="productDetailClose" class="blog-modal-close" type="button" aria-label="Close product details">&times;</button>
+        <div id="productDetailBody">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div id="imageModal" class="blog-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="blog-modal-content" style="max-width: 580px; text-align: center;">
+        <button id="modalClose" class="blog-modal-close" type="button" aria-label="Close image modal">&times;</button>
+        <img id="modalImg" src="images/products/placeholder.svg" alt="Product packaging preview" style="max-height: 400px; object-fit: contain; margin: 0 auto 20px;" />
+        <h3 id="modalTitle" style="margin-bottom: 6px; color: var(--blue);"></h3>
+        <p id="modalSub" style="color: var(--muted); font-size: 0.92rem; margin-bottom: 20px;"></p>
+        <a id="modalWaBtn" class="btn btn-primary" href="https://wa.me/918198888864" target="_blank" rel="noopener">Enquire on WhatsApp &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="shareModal" class="blog-modal" role="dialog" aria-modal="true" aria-labelledby="sharePreviewTitle">
+      <div class="blog-modal-content" style="max-width: 520px;">
+        <button id="shareClose" class="blog-modal-close" type="button" aria-label="Close share dialog">&times;</button>
+        <h3 style="margin-bottom: 16px; color: var(--blue);">Share Product Details</h3>
+        <div style="background: var(--surface-2); border-radius: 12px; padding: 16px; margin-bottom: 20px; display: flex; gap: 14px; align-items: center;">
+          <img id="sharePreviewImg" src="images/products/placeholder.svg" alt="" style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px; background: #fff;" />
+          <div>
+            <h4 id="sharePreviewTitle" style="margin: 0 0 4px; font-size: 1rem; color: var(--ink);"></h4>
+            <p id="sharePreviewSub" style="margin: 0; font-size: 0.84rem; color: var(--muted);"></p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a id="shareWaBtn" class="btn btn-primary" href="#" target="_blank" rel="noopener" style="justify-content: center;">Share via WhatsApp</a>
+          <button id="shareCopyBtn" class="btn btn-secondary" type="button" style="justify-content: center;">Copy Shareable Link</button>
+        </div>
+        <div id="shareToast" style="display: none; margin-top: 14px; padding: 10px; background: var(--surface-2); border-radius: 8px; font-size: 0.85rem; text-align: center; color: var(--teal); font-weight: 600;"></div>
+      </div>
+    </div>
+
+    <!-- Compact CTA Band (Single Contact Section maintained on Contact page) -->
+    <section class="compact-cta-band">
+      <div class="wrap compact-cta-inner reveal">
+        <div>
+          <span class="eyebrow" style="color:var(--teal)">Get in touch</span>
+          <h2>Need product samples or price quotations?</h2>
+          <p>Connect directly with our team at Plot No. 556, Industrial Area Phase-9, Mohali, Punjab 160062.</p>
+        </div>
+        <div class="compact-cta-actions">
+          <a class="btn btn-primary" href="tel:+918198888864">Call Now</a>
+          <a class="btn btn-secondary" href="https://wa.me/918198888864" target="_blank" rel="noopener">WhatsApp Chat</a>
+          <a class="btn btn-secondary" href="contact.html">Visit Contact Page &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap footer-inner">
+      <span>&copy; 2026 Signoret Pharmaceuticals Pvt. Ltd. All rights reserved. Established Since 2019.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="third-party-manufacturing.html">Third-Party Mfg</a>
+        <a href="pcd-franchise.html">PCD Franchise</a>
+        <a href="quality.html">Quality</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a class="float-wa" aria-label="Enquire with Signoret Pharmaceuticals on WhatsApp" href="https://wa.me/918198888864?text=Hello%20Signoret%20Pharmaceuticals%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener">WhatsApp</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="products-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

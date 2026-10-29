@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#0b315d" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <title>Pharma Insights &amp; Updates — Signoret Pharmaceuticals Mohali</title>
+  <meta name="description" content="Pharmaceutical industry updates, contract manufacturing guidance, and PCD franchise opportunities from Signoret Pharmaceuticals Pvt. Ltd., Mohali." />
+  <link rel="canonical" href="https://signoretpharma.com/blog.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pharma Insights &amp; Updates — Signoret Pharmaceuticals Mohali" />
+  <meta property="og:description" content="Pharmaceutical industry insights, contract manufacturing guidance, and PCD franchise updates from Signoret Pharmaceuticals Pvt. Ltd." />
+  <meta property="og:image" content="https://signoretpharma.com/images/og-share.jpg" />
+  <meta property="og:url" content="https://signoretpharma.com/blog.html" />
+  <meta property="og:site_name" content="Signoret Pharmaceuticals Pvt. Ltd." />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+      margin-top: 36px;
+    }
+    .blog-card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .blog-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #e2e8f0;
+    }
+    .blog-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .blog-tag {
+      background: rgba(0, 122, 114, 0.1);
+      color: var(--teal);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+    .blog-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      color: var(--navy);
+      line-height: 1.35;
+    }
+    .blog-card p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+    .blog-read-btn {
+      align-self: flex-start;
+      color: var(--teal);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .blog-read-btn:hover {
+      text-decoration: underline;
+    }
+    /* Blog modal */
+    .blog-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 49, 93, 0.65);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .blog-modal.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .blog-modal-content {
+      background: #fff;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+    .blog-modal-close {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      background: #f1f5f9;
+      border: none;
+      font-size: 1.4rem;
+      line-height: 1;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .blog-modal-close:hover {
+      background: #e2e8f0;
+      color: var(--ink);
+    }
+    .blog-modal-content img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+    }
+    .blog-modal-content h2 {
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .blog-body-text {
+      color: var(--ink);
+      line-height: 1.8;
+      font-size: 0.96rem;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="top-info">
+        <a href="tel:+918198888864">+91 81988 88864</a>
+        <span>Mon&ndash;Sat&nbsp; 9:00 AM &ndash; 6:30 PM &middot; Mohali, Punjab</span>
+      </div>
+      <a class="wa-mini" href="https://wa.me/918198888864?text=Hello%20Signoret%20Pharmaceuticals%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener"><span class="wa-dot"></span> WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav aria-label="Main navigation">
+    <div class="wrap nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Signoret Pharmaceuticals Home">
+        <span class="nav-brand-logo"><img src="images/logo-mark.png" alt="Signoret Pharmaceuticals logo" /></span>
+        <span class="nav-brand-text">Signoret <span class="nav-brand-sub">Pharma</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="third-party-manufacturing.html">Third-Party Mfg</a>
+        <a href="pcd-franchise.html">PCD Franchise</a>
+        <a href="quality.html">Quality</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-cta" href="tel:+918198888864">Call Now</a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <main id="main">
+    <!-- Hero Section -->
+    <header class="page-hero">
+      <div class="wrap">
+        <div class="hero-content reveal">
+          <span class="eyebrow">Industry Knowledge</span>
+          <h1>Pharma Insights, News &amp; Updates.</h1>
+          <p class="hero-sub">Stay informed with updates on pharmaceutical third-party contract manufacturing, PCD franchise opportunities, and regulatory standards from our team in Mohali.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Blog Posts Grid Section -->
+    <section class="reveal">
+      <div class="wrap">
+        <div id="blogGrid" class="blog-grid" role="feed" aria-busy="true">
+          <!-- Rendered dynamically from Supabase -->
+          <div class="blog-card" style="padding: 30px; text-align: center; color: var(--muted); grid-column: 1/-1;">
+            Loading updates…
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Post Detail Modal -->
+    <div id="blogModal" class="blog-modal" role="dialog" aria-modal="true" aria-labelledby="modalPostTitle">
+      <div class="blog-modal-content">
+        <button id="blogModalClose" class="blog-modal-close" type="button" aria-label="Close dialog">&times;</button>
+        <img id="modalPostImg" src="" alt="" style="display:none;" />
+        <div class="blog-meta">
+          <span class="blog-tag" id="modalPostCat">Update</span>
+          <span id="modalPostDate"></span>
+        </div>
+        <h2 id="modalPostTitle"></h2>
+        <div class="blog-body-text" id="modalPostBody"></div>
+      </div>
+    </div>
+
+    <!-- Compact CTA Band (Single Contact Section Rule) -->
+    <section class="compact-cta-band">
+      <div class="wrap compact-cta-inner reveal">
+        <div>
+          <span class="eyebrow" style="color:var(--teal)">Have Questions?</span>
+          <h2>Partner with Signoret Pharmaceuticals for your manufacturing &amp; franchise needs.</h2>
+          <p>Get instant quotations and territory availability confirmations directly from our team in Mohali.</p>
+        </div>
+        <div class="compact-cta-actions">
+          <a class="btn btn-primary" href="tel:+918198888864">Call Now</a>
+          <a class="btn btn-secondary" href="https://wa.me/918198888864" target="_blank" rel="noopener">WhatsApp Chat</a>
+          <a class="btn btn-secondary" href="contact.html">Visit Contact Page &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap footer-inner">
+      <span>&copy; 2026 Signoret Pharmaceuticals Pvt. Ltd. All rights reserved. Established Since 2019.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="third-party-manufacturing.html">Third-Party Mfg</a>
+        <a href="pcd-franchise.html">PCD Franchise</a>
+        <a href="quality.html">Quality</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp CTA -->
+  <a class="float-wa" aria-label="Enquire with Signoret Pharmaceuticals on WhatsApp" href="https://wa.me/918198888864?text=Hello%20Signoret%20Pharmaceuticals%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener">WhatsApp</a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="products-data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var blogGrid = document.getElementById('blogGrid');
+      var blogModal = document.getElementById('blogModal');
+      var modalTitle = document.getElementById('modalPostTitle');
+      var modalCat = document.getElementById('modalPostCat');
+      var modalDate = document.getElementById('modalPostDate');
+      var modalBody = document.getElementById('modalPostBody');
+      var modalImg = document.getElementById('modalPostImg');
+      var modalClose = document.getElementById('blogModalClose');
+
+      var currentPosts = [];
+      var lastFocusedTrigger = null;
+
+      function esc(str) {
+        if (!str) return '';
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      function renderPosts(posts) {
+        currentPosts = posts || [];
+        blogGrid.removeAttribute('aria-busy');
+        if (!currentPosts.length) {
+          blogGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--muted);background:var(--surface);border-radius:12px;border:1px dashed var(--line);">' +
+            '<p style="font-size:1.1rem;margin-bottom:8px;font-weight:600;color:var(--blue);">Updates coming soon</p>' +
+            '<p style="font-size:0.92rem;margin:0;">We are currently updating our article and announcement feed. Please check back soon or contact us directly on WhatsApp.</p>' +
+          '</div>';
+          return;
+        }
+
+        blogGrid.innerHTML = '';
+        currentPosts.forEach(function (post, idx) {
+          var card = document.createElement('article');
+          card.className = 'blog-card reveal on';
+          card.setAttribute('data-index', idx);
+
+          var img = post.photo || post.image_url;
+          var desc = post.body || post.description || '';
+          var snippet = desc.length > 140 ? desc.substring(0, 140) + '…' : desc;
+
+          if (img) {
+            var imgEl = document.createElement('img');
+            imgEl.className = 'blog-card-img';
+            imgEl.src = img;
+            imgEl.alt = post.title || 'Blog post';
+            imgEl.loading = 'lazy';
+            card.appendChild(imgEl);
+          }
+
+          var bodyDiv = document.createElement('div');
+          bodyDiv.className = 'blog-card-body';
+
+          var metaDiv = document.createElement('div');
+          metaDiv.className = 'blog-meta';
+          var tagSpan = document.createElement('span');
+          tagSpan.className = 'blog-tag';
+          tagSpan.textContent = post.category || 'Industry';
+          var dateSpan = document.createElement('span');
+          dateSpan.textContent = post.date || 'Recent';
+          metaDiv.appendChild(tagSpan);
+          metaDiv.appendChild(dateSpan);
+          bodyDiv.appendChild(metaDiv);
+
+          var h3 = document.createElement('h3');
+          h3.textContent = post.title || 'Untitled Post';
+          bodyDiv.appendChild(h3);
+
+          var p = document.createElement('p');
+          p.textContent = snippet;
+          bodyDiv.appendChild(p);
+
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'blog-read-btn';
+          btn.textContent = 'Read Article →';
+          btn.addEventListener('click', function () {
+            lastFocusedTrigger = btn;
+            openPost(idx);
+          });
+          bodyDiv.appendChild(btn);
+
+          card.appendChild(bodyDiv);
+          blogGrid.appendChild(card);
+        });
+      }
+
+      function openPost(idx) {
+        var post = currentPosts[idx];
+        if (!post) return;
+        modalTitle.textContent = post.title || '';
+        modalCat.textContent = post.category || 'Article';
+        modalDate.textContent = post.date || '';
+        modalBody.textContent = post.body || post.description || '';
+        var img = post.photo || post.image_url;
+        if (img) {
+          modalImg.src = img;
+          modalImg.style.display = 'block';
+        } else {
+          modalImg.style.display = 'none';
+        }
+        blogModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (modalClose) modalClose.focus();
+      }
+
+      function closeModal() {
+        blogModal.classList.remove('open');
+        document.body.style.overflow = '';
+        if (lastFocusedTrigger) {
+          lastFocusedTrigger.focus();
+          lastFocusedTrigger = null;
+        }
+      }
+
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+      if (blogModal) {
+        blogModal.addEventListener('click', function (e) {
+          if (e.target === blogModal) closeModal();
+        });
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && blogModal.classList.contains('open')) closeModal();
+      });
+
+      // Trap focus in modal
+      if (blogModal) {
+        blogModal.addEventListener('keydown', function (e) {
+          if (e.key !== 'Tab' || !blogModal.classList.contains('open')) return;
+          var focusables = blogModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+          if (!focusables.length) return;
+          var first = focusables[0];
+          var last = focusables[focusables.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        });
+      }
+
+      // Initial render: Supabase or stored
+      if (window.SignoretSupabase && typeof window.SignoretSupabase.fetchPosts === 'function') {
+        window.SignoretSupabase.fetchPosts().then(function (posts) {
+          if (posts && posts.length) {
+            if (window.SignoretData) window.SignoretData.saveStoredPosts(posts);
+            renderPosts(posts);
+          } else {
+            renderPosts([]);
+          }
+        }).catch(function () {
+          renderPosts([]);
+        });
+      } else if (window.SignoretData) {
+        renderPosts(window.SignoretData.getStoredPosts());
+      }
+    }());
+  </script>
+</body>
+</html>
