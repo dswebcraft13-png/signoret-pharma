@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="sGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="70%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="sGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="60%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <!-- Stylized folded S ribbon -->
+  <path d="M190,0 L70,120 C50,140 40,165 40,195 C40,240 75,275 120,275 C145,275 168,260 180,240 L195,260 C180,285 152,305 120,305 C55,305 5,255 5,190 C5,150 20,118 45,92 L150,0 Z" fill="url(#sGrad1)"/>
+  <path d="M10,400 L130,280 C150,260 160,235 160,205 C160,160 125,125 80,125 C55,125 32,140 20,160 L5,140 C20,115 48,95 80,95 C145,95 195,145 195,210 C195,250 180,282 155,308 L50,400 Z" fill="url(#sGrad2)"/>
+  <path d="M60,190 C60,160 90,135 125,145 C150,153 160,175 160,205 C160,235 130,260 95,250 C70,242 60,220 60,190 Z" fill="url(#sGrad3)" opacity="0.9"/>
+</svg>
